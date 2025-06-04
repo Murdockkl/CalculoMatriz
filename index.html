@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar LI ou LD - Matrizes</title>
+    <link rel="stylesheet" href="LD_LI.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="background-elements" aria-hidden="true">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <main class="container" role="main" aria-labelledby="main-heading">
+        <h1 id="main-heading">Verificador de Dependência Linear de Matrizes</h1>
+        <h2 class="subtitle">Descubra se sua Matriz é LI (Linearmente Independente) ou LD (Linearmente Dependente)</h2>
+
+        <section class="input-section" aria-label="Definição da Ordem da Matriz">
+            <label for="ordem">Ordem da Matriz:</label>
+            <div class="input-group">
+                <input type="number" id="ordem" value="3" min="1" max="10" aria-label="Defina a ordem da matriz, de 1 a 10.">
+                <button onclick="gerarMatriz()" aria-label="Gerar campos da matriz">Gerar Matriz</button>
+            </div>
+        </section>
+
+        <section class="matrix-input-section" aria-label="Entrada de Valores da Matriz">
+            <div id="matrixInputs" class="matrix-container">
+                </div>
+        </section>
+      
+        <div class="action-group">
+            <button onclick="verificarMatriz()" aria-label="Verificar se a matriz é LI ou LD">Verificar Matriz</button>
+        </div>
+
+        <section class="result-section" aria-label="Resultado da Verificação">
+            <h3>Resultado da Análise:</h3>
+            <div id="resultado" class="result-box" role="status" aria-live="polite">
+                </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Desenvolvido por João Emanuel 😉</p>
+    </footer>
+
+    <script src="LD_LI.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* reset básico pra tudo começar do zero. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'inter', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa 0%, #bbdefb 100%);
+    color: #263238; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased; 
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* os desenhinho do fundo*/
+.background-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.background-elements div {
+    position: absolute;
+    background: rgba(144, 202, 249, 0.15);
+    border-radius: 50%;
+    opacity: 0;
+    animation: floatAndFade 25s infinite ease-in-out;
+    filter: blur(5px);
+}
+
+/* tamanhos e posições aleatórias para os elementos de fundo. */
+.background-elements div:nth-child(1) { width: 70px; height: 70px; left: 10%; top: 15%; animation-delay: 0s; animation-duration: 20s; }
+.background-elements div:nth-child(2) { width: 40px; height: 40px; left: 85%; top: 40%; animation-delay: 3s; animation-duration: 25s; }
+.background-elements div:nth-child(3) { width: 100px; height: 100px; left: 25%; top: 75%; animation-delay: 7s; animation-duration: 30s; }
+.background-elements div:nth-child(4) { width: 55px; height: 55px; left: 5%; top: 60%; animation-delay: 10s; animation-duration: 22s; }
+.background-elements div:nth-child(5) { width: 80px; height: 80px; left: 90%; top: 5%; animation-delay: 5s; animation-duration: 28s; }
+
+@keyframes floatAndFade {
+    0% { transform: translateY(0px) scale(0.8); opacity: 0; }
+    20% { opacity: 0.6; }
+    50% { transform: translateY(-50px) scale(1.1); opacity: 0.8; }
+    80% { opacity: 0.6; }
+    100% { transform: translateY(-100px) scale(0.8); opacity: 0; }
+}
+
+/* títulos */
+h1 {
+    color: #1a237e; /* azul bem escuro, a cor principal. */
+    font-size: 2.8em;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -0.04em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+}
+
+.subtitle {
+    color: #3f51b5;
+    font-size: 1.6em;
+    font-weight: 500;
+    margin-bottom: 40px;
+    letter-spacing: -0.02em;
+}
+
+h3 {
+    color: #424242;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* princial*/
+.container {
+    background-color: #ffffff;
+    padding: 50px 60px;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 90%;
+    width: 780px;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* efeito ao redor do container no hover. */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(63, 81, 181, 0.15) 0%, transparent 60%);
+    transform: rotate(0deg);
+    transition: transform 1.2s ease-out, opacity 0.6s ease-out;
+    opacity: 0;
+    z-index: -1;
+}
+
+.container:hover::before {
+    transform: rotate(360deg);
+    opacity: 1;
+}
+
+.container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+}
+
+/* seção de entrada de ordem  */
+.input-section {
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    margin-bottom: 15px;
+    color: #455a64;
+    font-size: 1.15em;
+    font-weight: 500;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+input[type="number"] {
+    background-color: #fcfdfe;
+    border: 1px solid #cce7f5;
+    color: #3f51b5;
+    padding: 15px 22px;
+    border-radius: 14px;
+    font-size: 1.2em;
+    width: 170px;
+    text-align: center;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #7986cb;
+    box-shadow: 0 0 0 5px rgba(121, 134, 203, 0.2), inset 0 1px 4px rgba(0, 0, 0, 0.06);
+    background-color: #ffffff;
+}
+
+button {
+    background: linear-gradient(45deg, #7986cb, #5c6bc0);
+    color: #ffffff;
+    border: none;
+    padding: 16px 38px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.15em;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* efeito quando deslizar o mouse*/
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: skewX(-20deg);
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    background: linear-gradient(45deg, #5c6bc0, #3f51b5);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #5c6bc0, #3f51b5);
+}
+
+/* seção da matriz */
+.matrix-input-section {
+    margin-bottom: 40px;
+    overflow-x: auto; /* Adiciona rolagem horizontal se a matriz for muito larga */
+    padding-bottom: 15px; /* Evita que a barra de rolagem corte o conteúdo */
+}
+
+.matrix-container {
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 18px;
+    background-color: #fdfefe;
+    display: flex; /* Muda para flexbox para melhor controle do layout */
+    flex-direction: column; /* Organiza as linhas da matriz em coluna */
+    align-items: center; /* Centraliza as linhas de inputs */
+    box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: fit-content; /* Garante que o container da matriz não seja menor que seu conteúdo interno */
+}
+
+.matrix-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    flex-shrink: 0; /* Impede que os itens encolham além do necessário */
+}
+
+.matrix-row:last-child {
+    margin-bottom: 0;
+}
+
+.matrix-row input {
+    width: 60px; /* Reduz a largura padrão para acomodar mais inputs */
+    min-width: 45px; /* Largura mínima para inputs em telas muito pequenas */
+    margin: 0 5px; /* Reduz a margem entre os inputs */
+    padding: 10px 12px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid #dce1e6;
+    color: #3f51b5;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.matrix-row input:focus {
+    border-color: #7986cb;
+    box-shadow: 0 0 0 3px rgba(121, 134, 203, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.04);
+    background-color: #ffffff;
+}
+
+/* seção de resultado */
+.result-box {
+    margin-top: 25px;
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #28a745;
+    padding: 25px;
+    border-radius: 16px;
+    background-color: #e8f5e9;
+    box-shadow: 0 4px 20px rgba(40, 167, 69, 0.1);
+    border: 1px solid #c8e6c9;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.6;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* os efeito bacana do brilho */
+.result-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(40, 167, 69, 0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+}
+
+.result-box.error::before {
+    background: radial-gradient(circle, rgba(220, 53, 69, 0.05) 0%, transparent 70%);
+}
+
+.result-box:hover::before {
+    opacity: 1;
+}
+
+.result-box.error {
+    background-color: #ffebee;
+    border-color: #ffcdd2;
+    color: #d32f2f;
+    box-shadow: 0 4px 20px rgba(220, 53, 69, 0.1);
+}
+
+/* rodapé bala. */
+.footer {
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #78909c;
+    text-align: center;
+    opacity: 0.8;
+}
+
+/* responsividade pra ficar bacana nas telas */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1.3em;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        padding: 35px 25px;
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    input[type="number"] {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    button {
+        padding: 14px 30px;
+        font-size: 1.05em;
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto 25px;
+    }
+
+    .matrix-input-section {
+        margin-bottom: 30px;
+    }
+
+    .matrix-row input {
+        width: 45px; /* Ajuste para telas menores */
+        margin: 0 3px;
+        padding: 7px 8px;
+        font-size: 0.9em;
+    }
+
+    #resultado {
+        font-size: 1.2em;
+        padding: 20px;
+        min-height: 80px;
+    }
+
+    h3 {
+        font-size: 1.3em;
+        margin-top: 30px;
+    }
+}
+
+/* ajuste para telas muito pequenas */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 1.1em;
+    }
+
+    .matrix-row input {
+        width: 35px; /* Extrema redução para caber */
+        margin: 0 2px;
+        font-size: 0.8em;
+        padding: 5px 4px;
+    }
+}
