@@ -75,4 +75,4 @@ function verificarMatriz() {
     }
 }
 
-// gostei muito de fazer isso aqui, teacher Flausino 😁
+// gostei muito de fazer isso aqui, teacher Flausino
