@@ -64,9 +64,9 @@ function verificarMatriz() {
         let resultado = `Determinante: ${det}<br>`;
 
         if (det !== 0) {
-            resultado += '😀 A matriz é Linearmente Independente (LI).';
+            resultado += ' A matriz é Linearmente Independente (LI).';
         } else {
-            resultado += '😀 A matriz é Linearmente Dependente (LD).';
+            resultado += ' A matriz é Linearmente Dependente (LD).';
         }
 
         document.getElementById('resultado').innerHTML = resultado;
