@@ -71,7 +71,7 @@ function verificarMatriz() {
 
         document.getElementById('resultado').innerHTML = resultado;
     } catch (error) {
-        document.getElementById('resultado').innerHTML = '❗ Erro: ' + error.message;
+        document.getElementById('resultado').innerHTML = ' Erro: ' + error.message;
     }
 }
 
